@@ -1,5 +1,7 @@
 package com.demo.springbatchsampleapp.batch.conf;
 
+import java.util.List;
+
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.job.builder.JobBuilder;
@@ -18,7 +20,8 @@ public class BatchConfig {
 
 	@Bean
 	public CustomItemReader reader() {
-		return new CustomItemReader();
+		List<String> inputList = List.of("word1", "word2", "word3", "word4", "word5", "word6");
+		return new CustomItemReader(inputList);
 	}
 
 	@Bean
