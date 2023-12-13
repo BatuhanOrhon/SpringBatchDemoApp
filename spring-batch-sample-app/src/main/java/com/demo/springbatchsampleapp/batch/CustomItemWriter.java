@@ -3,11 +3,16 @@ package com.demo.springbatchsampleapp.batch;
 import org.springframework.batch.item.Chunk;
 import org.springframework.batch.item.ItemWriter;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class CustomItemWriter implements ItemWriter<String> {
 
 	@Override
 	public void write(Chunk<? extends String> chunk) throws Exception {
-		// TODO Auto-generated method stub
+		for (var s : chunk) {
+			log.info("Writing the item: {}", s);
+		}
 
 	}
 
